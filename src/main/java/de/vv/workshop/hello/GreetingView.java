@@ -22,6 +22,21 @@ public class GreetingView extends VerticalLayout implements View {
     viewCaption.addStyleName(ValoTheme.LABEL_H2);
     viewCaption.addStyleName(ValoTheme.LABEL_NO_MARGIN);
     addComponent(viewCaption);
+
+    Label lblInput = new Label("Name");
+    TextField txtName = new TextField();
+    Button btnSubmit = new Button("Submit");
+
+    HorizontalLayout hl = new HorizontalLayout(lblInput, txtName, btnSubmit);
+    hl.setSpacing(true);
+    Label lblGreeting = new Label();
+
+    addComponent(hl);
+    addComponent(lblGreeting);
+
+    btnSubmit.addClickListener(clickEvent -> {
+      lblGreeting.setValue("Hello " + txtName.getValue());
+    });
   }
 
   @Override
