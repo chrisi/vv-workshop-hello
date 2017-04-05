@@ -1,4 +1,3 @@
-FROM frolvlad/alpine-oraclejdk8:slim
-RUN apt-get install bash -y
+FROM dockerhub.gtidev.net/gtidev/alpine-jre-slim:latest 
 ADD vv-workshop-hello.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
