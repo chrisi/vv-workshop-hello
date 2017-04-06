@@ -6,9 +6,9 @@ pipeline {
         sh 'mvn clean package -Dmaven.test.failure.ignore=true -DskipTests=true'
       }
     }
-    stage('') {
+    stage('Archive Artefacts') {
       steps {
-        archiveArtifacts(artifacts: 'target/*.jar', defaultExcludes: true)
+        archiveArtifacts(artifacts: 'target/*.jar')
       }
     }
   }
