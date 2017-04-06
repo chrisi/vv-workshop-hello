@@ -6,6 +6,11 @@ pipeline {
         sh 'mvn clean package -Dmaven.test.failure.ignore=true -DskipTests=true'
       }
     }
+    stage('') {
+      steps {
+        archiveArtifacts(artifacts: 'target/*.jar', defaultExcludes: true)
+      }
+    }
   }
   tools {
     maven 'Maven 3.3'
